@@ -1,0 +1,66 @@
+README
+
+NAME: JIAN CHERN TAN  NETID: jctan93
+
+I used a struct called "simp" to store the data for an image, it has these members:
+-TWO integer values to store the width and height
+-A 2d array of pixels
+
+Pixel is a struct containing 4 "unsigned char" values to store RGBA.
+
+The methods to initialize a pixel and a simp are in simp.c
+For pixel: 4 unsigned chars are passed in to be stored and a pixel is returned
+For simp : width and height are passed in and the pixel array is malloced
+
+
+IMPORTANT ASSUMPTION: I'm assuming that any simp file converted with
+bmp2simp has enough data valuesto match the width and the height, eg. i'm assuming that
+the images aren't corrupted.
+
+
+FILES ARE LISTED BELOW:
+
+simp.h:
+pixel and simp structs are defined here
+
+simp.c:
+-The methods to initialize a simp and a pixel are in here, there are also methods
+to write to a binary file, to copy an image from a binary file and to free a simp
+structure
+REVISION FOR 1B: overlay and crop methods were added to be used in 1B, but i didn't modify my 1A code to use them
+
+crop.c:
+- Used to crop an image with the values specified in the argument
+- If not enough values are specified, an error message is printed and -1 is returned
+- If a value that is out of bounds is entered, an error message is printed and -1 is returned
+
+bw.c
+
+colorshift.c:
+- Lowercase and uppercase letters are both accepted
+anything that isn't a variation of the specified commands for a colorshift results 
+in an error message being displayed and -1 is returned
+
+
+overlay.c
+-If the start position is out of bounds, an error message is printed and nothing is done
+
+----------------------------------
+PART B
+
+meme.c
+- IT takes 2 parameters, the first is the mem file and the second is the act file
+- Assumptions: I'm assuming that there aren't any missing letters in the *insertfontnamehere*.fsf
+- I'm also assuming that there aren't any missing letters in the font simp image
+- If there isn't anything found in the memes.mem file (first value in my internal array is NULL), the program will exit
+- The same goes for the act file,(first value in my internal array is NULL), the program will exit
+- If nothing is found in the fsf file, the program exits
+- If any of the simp files(image/font) fail to open, the program will exit
+
+
+
+ALL PROGRAMS RETURN 0 IF AN ERROR OCCURS, EG IF NOT ENOUGH ARGUMENTS ARE SPECIFIED
+
+
+
+
